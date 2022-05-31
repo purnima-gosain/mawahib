@@ -1,23 +1,18 @@
 import 'dart:async';
-
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
-import 'package:mawahib/pages/splash/onboarding/onboarding.dart';
 import 'package:mawahib/resources/colors.dart';
 import 'package:mawahib/resources/size_constants.dart';
+import 'package:mawahib/router.gr.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
 
-  //  Future.delayed( Duration(milliseconds: 3), () a{
-  //     setState(() {});
-  //   });
-
   @override
   Widget build(BuildContext context) {
-    Timer(
-        const Duration(seconds: 6),
-        () => Navigator.of(context).pushReplacement(MaterialPageRoute(
-            builder: (BuildContext context) => const OnBoarding())));
+    Timer(const Duration(seconds: 6),
+        () => context.router.push(const OnBoardingRoute()));
+
     return SafeArea(
       child: Scaffold(
         body: Stack(children: [
